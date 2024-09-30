@@ -22,7 +22,7 @@ jobs:
           dotnet-version: '7.x'  # Especifica a versão do .NET a ser usada
 
       - name: Restore dependencies
-        run: dotnet restore  # Restaura as dependências do projeto
+        run: dotnet restore --force-evaluate  # Restaura as dependências do projeto
 
       - name: Build the project
         run: dotnet build --no-restore --configuration Release  # Compila o projeto
