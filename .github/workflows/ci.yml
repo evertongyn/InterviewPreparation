@@ -1,0 +1,31 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main  # Executar o pipeline em pushes para a branch principal
+  pull_request:
+    branches:
+      - main  # Executar o pipeline em pull requests para a branch principal
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Rodar o workflow em uma máquina com Ubuntu
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3  # Baixa o código do repositório
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '7.x'  # Especifica a versão do .NET a ser usada
+
+      - name: Restore dependencies
+        run: dotnet restore  # Restaura as dependências do projeto
+
+      - name: Build the project
+        run: dotnet build --no-restore --configuration Release  # Compila o projeto
+
+      - name: Run unit tests
+        run: dotnet test --no-build --verbosity normal --configuration Release  # Roda os testes
