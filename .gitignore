@@ -1,0 +1,77 @@
+# Compiled object files
+*.o
+*.obj
+*.dll
+*.exe
+*.pdb
+*.ilk
+*.lib
+*.vspscc
+*.vssscc
+.vscode/
+
+# Visual Studio directories
+.vs/
+.vscode/
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build Directories
+bin/
+obj/
+out/
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+.nuget/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Rider
+.idea/
+.idea_modules/
+.idea/.idea_modules/
+
+# JetBrains Rider
+.idea/
+.idea_modules/
+.idea/.idea_modules/
+
+# OS Generated Files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Rider project files
+.idea/
+.idea_modules/
+
+# Resharper
+_ReSharper*/
+*.DotSettings.user
+
+# Database
+*.mdf
+*.ldf
+*.db-shm
+*.db-wal
+
+# Docker files
+docker-compose.override.yml
