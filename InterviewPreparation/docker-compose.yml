@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:8080"  # Mapeia a porta 5000 do host para a porta 8080 do container
+    depends_on:
+      - db  # Define que a aplicação só será iniciada após o banco de dados estar pronto
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development  # Define o ambiente de execução
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    ports:
+      - "1433:1433"  # Mapeia a porta 1433 do container SQL Server
+    environment:
+      - ACCEPT_EULA=Y  # Aceitar o contrato de licença
+      - SA_PASSWORD=Admin123  # Define a senha do usuário SA
+    volumes:
+      - sqlvolume:/var/opt/mssql  # Cria um volume para persistir os dados do banco
+
+volumes:
+  sqlvolume:
